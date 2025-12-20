@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Moripe Holdings</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #fdfefe;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--primary);
+      color: var(--tertiary);
+      scroll-behavior: smooth;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .nav-bar .logo {
+      height: 130px;
+      width: 150px;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-bar a {
+      color: var(--tertiary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-bar a:hover {
+      color: var(--secondary);
+    }
+
+    .nav-bar .active {
+      color: var(--secondary);
+    }
+
+    .blog-header {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .blog-header h1 {
+      font-size: 3rem;
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--secondary);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 1.5rem;
+    }
+
+    .blog-content h2 {
+      color: var(--tertiary);
+      margin-bottom: 0.5rem;
+    }
+
+    .meta {
+      font-size: 0.9rem;
+      color: #aaa;
+      margin-bottom: 1rem;
+    }
+
+    .blog-content p {
+      color: #ddd;
+    }
+
+    .read-more {
+      display: inline-block;
+      margin-top: 1rem;
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .read-more:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background: #0e0a21;
+      text-align: center;
+      color: #ccc;
+      padding: 2rem;
+      margin-top: 3rem;
+    }
+
+    @media(min-width: 768px) {
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(min-width: 1024px) {
+      .blog-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+    <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
+    <ul>
+      <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="./Services.html"><i class="fas fa-cogs"></i> Services</a></li>
+      <li><a href="./Blog.html" class="active"><i class="fas fa-blog"></i> Blog</a></li>
+      <!-- <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li> -->
+    </ul>
+  </div>
+
+  <header class="blog-header">
+    <h1 data-aos="fade-down">Moripe Blog</h1>
+    <p data-aos="fade-up" style="color: #bbb;">Insights, News, and Industry Trends</p>
+  </header>
+
+  <section class="blog-grid">
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+      <img src="images/blog1.jpg" alt="Blog 1">
+      <div class="blog-content">
+        <h2>Driving Digital Transformation in SMMEs</h2>
+        <div class="meta">By Admin | March 15, 2025</div>
+        <p>Learn how Moripe Holdings is helping businesses embrace modern IT systems and adapt to change.</p>
+        <a href="./article_1.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+      <img src="images/blog2.jpg" alt="Blog 2">
+      <div class="blog-content">
+        <h2>Empowering SMEs Through Energy Access</h2>
+        <div class="meta">By Admin | February 28, 2025</div>
+        <p>Discover how accessible energy is transforming small enterprises across South Africa...</p>
+        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+
+    <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+      <img src="images/blog3.jpg" alt="Blog 3">
+      <div class="blog-content">
+        <h2>Our Consulting Edge in Business Innovation</h2>
+        <div class="meta">By Admin | January 20, 2025</div>
+        <p>Explore the impact of strategic consulting in unlocking organizational excellence...</p>
+        <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

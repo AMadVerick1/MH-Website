@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Training & Development | Moripe Holdings</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--primary);
+      color: var(--tertiary);
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-bar .logo {
+      height: 120px;
+      width: 120px;
+    }
+    
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      color: var(--tertiary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: var(--secondary);
+    }
+
+    .header {
+      background: linear-gradient(to right, #1c163f, #2e1c47);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      color: var(--secondary);
+    }
+
+    .header p {
+      color: #ccc;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .content h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 5px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .feature i {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      background: #0e0a21;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media(min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="Moripe_Logo-removebg-preview.png" class="logo" />
+    <ul>
+      <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="./Services.html" class="active"><i class="fas fa-cogs" ></i> Services</a></li>
+      <li><a href="./Blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+      <!-- <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li> -->
+    </ul>
+  </nav>
+
+  <header class="header" data-aos="fade-down">
+    <h1>Training & Development</h1>
+    <p>Equipping individuals and organizations with the knowledge and skills for sustainable growth.</p>
+  </header>
+
+  <section class="content">
+    <h2 data-aos="fade-up">Our Philosophy</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      At Moripe Holdings, we believe that empowering people through learning is key to organizational success. Our Training & Development division is focused on providing quality, accredited, and skills-based education that helps individuals and teams grow professionally and personally.
+    </p>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">What We Offer</h2>
+    <div class="features">
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-chalkboard-teacher"></i>
+        <strong>Skills Training</strong>
+        <p>Industry-relevant training programs for learners, graduates, and professionals to upskill and reskill effectively.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-graduation-cap"></i>
+        <strong>Accredited Programs</strong>
+        <p>We provide SETA-accredited and customized short courses aligned with SAQA and NQF frameworks.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-users-cog"></i>
+        <strong>Corporate Workshops</strong>
+        <p>Tailored in-house training and development solutions for organizations seeking improved performance and leadership.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-book-reader"></i>
+        <strong>Digital & Blended Learning</strong>
+        <p>Flexible learning options that combine online platforms, virtual classrooms, and physical workshops.</p>
+      </div>
+
+    </div>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Our Impact</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      With a team of experienced facilitators and a learner-centric approach, we've empowered hundreds of individuals and organizations across sectors. From unemployed youth to senior executives, our goal is to unlock potential and foster excellence.
+    </p>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

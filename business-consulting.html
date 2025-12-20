@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Business Consulting | Moripe Holdings</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--primary);
+      color: var(--tertiary);
+      scroll-behavior: smooth;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-bar .logo {
+      height: 120px;
+      width: 120px;
+    }
+
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      color: var(--tertiary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: var(--secondary);
+    }
+
+    .header {
+      background: linear-gradient(to right, #1c163f, #2e1c47);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      color: var(--secondary);
+    }
+
+    .header p {
+      color: #ccc;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .content h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 5px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .feature i {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      background: #0e0a21;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media(min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="Moripe_Logo-removebg-preview.png" class="logo" />
+    <ul>
+      <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="./Services.html" class="active"><i class="fas fa-cogs" ></i> Services</a></li>
+      <li><a href="./Blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+      <!-- <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li> -->
+    </ul>
+  </nav>
+
+  <header class="header" data-aos="fade-down">
+    <h1>Business Consulting</h1>
+    <p>Empowering businesses through strategic insight and innovation.</p>
+  </header>
+
+  <section class="content">
+    <h2 data-aos="fade-up">What We Offer</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      At Moripe Holdings, our business consulting service is tailored to support enterprises at every growth stage. We work with startups, SMEs, and large organizations to streamline operations, define clear goals, and implement actionable strategies that drive performance.
+    </p>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Our Key Areas of Focus</h2>
+    <div class="features">
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-lightbulb"></i>
+        <strong>Strategic Planning</strong>
+        <p>We help define your mission, vision, and long-term goals while building a roadmap to achieve sustainable growth.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-chart-line"></i>
+        <strong>Market & Financial Analysis</strong>
+        <p>Our experts evaluate current market trends, financial health, and key indicators to guide better decisions.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-cogs"></i>
+        <strong>Operational Improvement</strong>
+        <p>We identify bottlenecks and inefficiencies, implementing process improvements to enhance productivity.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-users-cog"></i>
+        <strong>Change Management</strong>
+        <p>Support your team through transitions—whether digital, organizational, or leadership—with tailored change management plans.</p>
+      </div>
+
+    </div>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Why Choose Moripe Holdings?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Our multidisciplinary team combines industry knowledge with cutting-edge tools to deliver transformative solutions. We value collaboration, transparency, and long-term relationships with our clients.
+    </p>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

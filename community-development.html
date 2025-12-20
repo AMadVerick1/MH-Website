@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Community Development | Moripe Holdings</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS Animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--primary);
+      color: var(--tertiary);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: var(--primary);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-bar .logo {
+      height: 120px;
+      width: 120px;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .navbar a {
+      color: var(--tertiary);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .navbar a:hover {
+      color: var(--secondary);
+    }
+
+    .header {
+      background: linear-gradient(to right, #1c163f, #2e1c47);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .header h1 {
+      font-size: 3rem;
+      color: var(--secondary);
+    }
+
+    .header p {
+      color: #ccc;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .content h2 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      line-height: 1.7;
+      color: #e0e0e0;
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 5px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .feature i {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      background: #0e0a21;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    @media(min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <img src="Moripe_Logo-removebg-preview.png" class="logo" />
+    <ul>
+      <li><a href="./index.html"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a></li>
+      <li><a href="./Services.html" class="active"><i class="fas fa-cogs" ></i> Services</a></li>
+      <li><a href="./Blog.html"><i class="fas fa-blog"></i> Blog</a></li>
+      <!-- <li><a href="#"><i class="fas fa-envelope"></i> Contact</a></li> -->
+    </ul>
+  </nav>
+
+  <header class="header" data-aos="fade-down">
+    <h1>Community Development</h1>
+    <p>Empowering communities to thrive through inclusive growth, skills development, and social upliftment.</p>
+  </header>
+
+  <section class="content">
+    <h2 data-aos="fade-up">Our Commitment</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      At Moripe Holdings, we place people at the heart of development. We believe that sustainable growth starts with empowered communities. Through a range of tailored programs, we invest in education, skills training, entrepreneurship, health, and infrastructure to promote lasting social and economic impact.
+    </p>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Impact Areas</h2>
+    <div class="features">
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-school"></i>
+        <strong>Education & Skills Development</strong>
+        <p>From early childhood support to vocational training — we equip individuals with the knowledge and tools to succeed.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-user-plus"></i>
+        <strong>Youth & Women Empowerment</strong>
+        <p>We champion gender equality and support youth leadership through mentorship, workshops, and access to opportunities.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-seedling"></i>
+        <strong>Social Enterprise Incubation</strong>
+        <p>Helping local innovators and entrepreneurs build sustainable ventures that address community needs.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-heartbeat"></i>
+        <strong>Health & Well-being</strong>
+        <p>Partnering with health programs and NGOs to improve access to healthcare, mental health support, and nutrition.</p>
+      </div>
+
+    </div>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Join Our Mission</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Our community development initiatives are driven by passion, partnerships, and purpose. Whether you're a volunteer, donor, NGO, or business, we invite you to work with us in creating real change at grassroots level.
+    </p>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+  </footer>
+
+  <!-- AOS Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

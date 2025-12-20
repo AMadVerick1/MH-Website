@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moripe Holdings | Home</title>
+  <meta name="description"
+    content="Moripe Holdings - Moripe Holdings is a leading provider of business consulting, training, and distribution services, dedicated to driving sustainable growth and transformation." />
+  <link rel="icon" type="image/x-icon" href="/Moripe_Logo-removebg-preview.png" />
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #fdfefe;
+      --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--tertiary);
+      color: var(--primary);
+      font-family: var(--font-family);
+    }
+
+    .main-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: var(--tertiary);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 0.6rem 1.7rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      color: var(--tertiary);
+      position: sticky;
+      top: 0;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .nav-bar .logo {
+      height: 110px;
+      width: 130px;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-bar ul li a {
+      text-decoration: none;
+      color: var(--tertiary);
+      font-weight: bold;
+      position: relative;
+    }
+
+    .nav-bar ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--secondary);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-bar ul li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-bar .active {
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+
+
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .nav-bar ul li {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .social-icons a {
+      color: #ffffff;
+      margin-right: 10px;
+      text-decoration: none;
+    }
+
+    .hero {
+      height: 65vh;
+      position: relative;
+    }
+
+    .slide {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: none;
+    }
+
+
+    #slide1 {
+      background-image: url("./565.jpg");
+    }
+
+    #slide2 {
+      background-image: url("./333.jpg");
+    }
+
+    #slide3 {
+      background-image: url("./891.jpg");
+    }
+
+
+    .fade {
+      animation: fade 1.5s ease-in-out infinite;
+    }
+
+    .text-overlay {
+      position: absolute;
+      bottom: 20%;
+      left: 5%;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    .about {
+      padding: 4rem 1rem 0;
+      background-color: #f5f5f5;
+    }
+
+    .wwa {
+      display: flex;
+      flex-direction: wrap;
+      color: var(--primary);
+    }
+
+    .wwa .container {
+      flex: 1;
+      padding: 2rem;
+      width: 70%;
+    }
+
+    .wwa .container h2 {
+      margin-bottom: 1rem;
+      font-size: 3rem;
+      color: var(--secondary);
+      text-decoration: underline;
+    }
+
+    .wwa .container p {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+    }
+
+    .wwa .mh-branding {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wwa .mh-branding {
+      background: linear-gradient(135deg, #130f29);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      width: 30%;
+    }
+
+    .vp-container {
+      flex: 1;
+      padding: 2rem 3rem 5rem;
+      margin: 3rem 0 0;
+      background-color: rgba(96, 68, 221, 0.15);
+    }
+
+    .vp-title {
+      margin-bottom: 2.5rem;
+      /* margin-top: 4rem; */
+      font-size: 3rem;
+      color: var(--primary);
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    .value-prop ul {
+      margin-top: 1rem;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .value-prop li {
+      margin: 0.5rem 0;
+      font-size: 1.5rem;
+    }
+
+    .services {
+      padding: 2.5rem 3rem 6rem;
+      background: var(--primary);
+      color: var(--tertiary);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .services-title {
+      margin-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-color: var(--secondary);
+    }
+
+    .service-section {
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.15));
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      padding: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .service-content {
+      padding: 1.5rem;
+    }
+
+    .service-content h3 {
+      font-size: 1.5rem;
+      color: var(--tertiary);
+      margin-bottom: 1rem;
+    }
+
+    .service-content p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: var(--tertiary);
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background-color: var(--secondary);
+      color: white;
+      padding: 0.6rem 1.25rem;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #c30001;
+    }
+
+    .testimonials {
+      padding: 7rem 2rem;
+      /* background: #fff; */
+      text-align: center;
+      background-image: url('./town.jpg ');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      opacity: 0.2;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .testimonial-container {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .testimonials-title {
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-color: var(--secondary);
+      color: var(--tertiary);
+    }
+
+    .testimonial {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7));
+      padding: 1.5rem;
+      border-radius: 8px;
+      width: 300px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      color: var(--tertiary);
+
+    }
+
+    .testimonial p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+
+    .testimonial span {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: var(--secondary);
+    }
+
+    .partners {
+      background: #fafafa;
+      padding: 3rem 2rem 5rem;
+      text-align: center;
+    }
+
+    .partner-title,
+    .services-title,
+    .testimonials-title {
+      margin-bottom: 2rem;
+      font-size: 3rem;
+      text-align: center;
+    }
+
+    .partner-title {
+      color: var(--primary);
+    }
+
+    .carousel {
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(2 * 3000px);
+      animation: scroll 40s linear infinite;
+    }
+
+    .carousel-slide {
+      display: flex;
+      align-items: center;
+    }
+
+    .carousel-slide img {
+      height: 90px;
+      margin: 0 20px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-slide img:hover {
+      transform: scale(1.1);
+    }
+
+    /* VACANCY BANNERS */
+    .vacancies {
+      padding: 3rem 2rem;
+      background-color: #f5f5f5;
+      text-align: center;
+      background-image: url('./assets/eric-prouzet-B3UFXwcVbc4-unsplash.jpg');
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    .vacancies-title {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      text-decoration: underline;
+      text-decoration-color: var(--secondary);
+      color: var(--primary);
+    }
+
+    .vacancy-banners {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .vacancy-banner {
+      background: var(--primary);
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .vacancy-banner:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .vacancy-banner img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .vacancy-info {
+      padding: 1rem;
+      color: var(--primary);
+    }
+
+    .vacancy-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--secondary);
+    }
+
+    .vacancy-info p {
+      font-size: 1rem;
+      color: #555;
+    }
+
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0%);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    footer {
+      background-color: var(--primary);
+      color: var(--tertiary);
+      padding: 1rem;
+      text-align: left;
+    }
+
+    .footer-columns {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      padding: 2rem 0;
+      background-color: var(--primary);
+      color: var(--tertiary);
+    }
+
+    .footer-columns div {
+      margin: 1rem;
+      max-width: calc(25% - 2rem);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 0;
+      background-color: var(--primary);
+    }
+
+    .col-1 h4,
+    .col-2 h4,
+    .col-3 h4,
+    .col-4 h4 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .col-1 p,
+    .col-2 p,
+    .col-3 p,
+    .col-4 p {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-section {
+      display: flex;
+      /* flex-direction: column; */
+      padding: 3rem;
+      background-color: var(--tertiary);
+      color: var(--primary);
+    }
+
+    .form-section .col-1 {
+      flex: 1;
+      padding: 2rem;
+      background-color: var(--tertiary);
+      color: var(--primary);
+    }
+
+    .form-section .col-2 {
+      flex: 1;
+      padding: 2rem;
+      background-color: var(--tertiary);
+      color: var(--primary);
+    }
+
+    .form-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .form-container {
+      position: relative;
+      width: 100%;
+      padding-top: 75%;
+    }
+
+    .form-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .location-label {
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.2rem;
+    }
+
+    .address {
+      list-style: none;
+      padding: 10px;
+    }
+
+    .social-link a {
+      color: var(--tertiary);
+      margin-right: 10px;
+      text-decoration: none;
+    }
+
+    .social-link a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .social-links ul li {
+      display: flex;
+      justify-content: space-around;
+      margin-right: 10px;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .scroll-top-btn:hover {
+      background-color: #c30001;
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+
+    @media (max-width: 1200px) {
+
+      .wwa .container h2,
+      .vp-title,
+      .testimonials-title,
+      .partner-title {
+        font-size: 2.5rem;
+      }
+
+      .wwa .container p,
+      .value-prop li,
+      .testimonial p {
+        font-size: 1.2rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-bar ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-bar .logo {
+        height: 80px;
+        width: 100px;
+      }
+
+      .wwa {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .wwa .container,
+      .wwa .mh-branding {
+        width: 100%;
+      }
+
+      .testimonial {
+        width: 45%;
+      }
+
+      .footer-columns div {
+        max-width: 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .hero {
+        height: 50vh;
+      }
+
+      .text-overlay {
+        padding: 1rem;
+        font-size: 1rem;
+        max-width: 90%;
+        left: 5%;
+      }
+
+      .vp-container,
+      .services,
+      .about {
+        padding: 2rem 1rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial {
+        width: 100%;
+      }
+
+      .footer-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-columns div {
+        max-width: 100%;
+      }
+
+      .carousel-slide img {
+        height: 60px;
+        margin: 0 10px;
+      }
+
+      .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 14px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-bar {
+        padding: 0.5rem 1rem;
+      }
+
+      .text-overlay {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+
+      .vp-title,
+      .testimonials-title,
+      .partner-title,
+      .services-title {
+        font-size: 2rem;
+      }
+
+      .testimonial p {
+        font-size: 1rem;
+      }
+
+      .service-img {
+        height: 160px;
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .scroll-top-btn {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <title>Moripe Holdings</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <div class="nav-bar">
+      <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
+
+      <button class="hamburger" id="hamburger">&#9776;</button>
+
+      <ul>
+        <li>
+          <a href="./index.html" class="active"> <i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="./Skills Development.html"><i class="fas fa-users"></i> Skills Development</a>
+        </li>
+        <li>
+          <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i> Calendar</a>
+        </li>
+        <!-- <li>
+          <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
+        </li> -->
+        <li>
+          <a href="./Services.html"><i class="fas fa-cogs"></i> Services</a>
+        </li>
+        <!-- <li>
+          <a href="./media.html"><i class="fas fa-images"></i> Media</a>
+        </li> -->
+        <li>
+          <a href="./Enquiries.html"><i class="fas fa-mail-bulk"></i> Enquiries</a>
+        </li>
+      </ul>
+    </div>
+    <div class="body-container">
+
+      <!-- SLIDESHOW / HERO SECTION -->
+      <section class="hero" style="position: relative; overflow: hidden">
+        <div class="slideshow-container" style="background-image: url('./temporary hero.jpg');">
+          <div class="slide fade" id="slide1">
+            <div class="text-overlay" data-aos="fade-up">
+              <h1>Empowering People, Transforming Futures</h1>
+              <p>Specialists in Skills Development & Training</p>
+            </div>
+          </div>
+          <div class="slide fade" id="slide2">
+            <div class="text-overlay" data-aos="fade-up">
+              <h1>Certified. Accredited. Trusted.</h1>
+              <p>Supporting Enterprises Across Sectors</p>
+            </div>
+          </div>
+          <div class="slide fade" id="slide3">
+            <div class="text-overlay" data-aos="fade-up">
+              <h1>Practical Skills, Real Impact</h1>
+              <p>Developing Tomorrow's Workforce</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- <section class="vacancies" data-aos="fade-up">
+        <h2 class="vacancies-title">Current Vacancies</h2>
+        <div class="vacancy-banners">
+          <div class="vacancy-banner">
+            <a href="./assets/Vacancy 1.jpg" target="_blank">
+              <img src="./assets/cytonn-photography-n95VMLxqM2I-unsplash.jpg" alt="Vacancy 1 Poster">
+              <div class="vacancy-info">
+                <h3>Mpumalanga Vacancy</h3>
+                <p>Click to view full poster</p>
+              </div>
+            </a>
+          </div>
+          <div class="vacancy-banner">
+            <a href="./assets/Vacancy 2.jpg" target="_blank">
+              <img src="./assets/cytonn-photography-n95VMLxqM2I-unsplash.jpg" alt="Vacancy 2 Poster">
+              <div class="vacancy-info">
+                <h3>Gauteng Vacancy</h3>
+                <p>Click to view full poster</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section> -->
+
+      <!-- WHO WE ARE -->
+      <section class="about" id="about" data-aos="fade-up">
+        <div class="wwa">
+          <div class="container">
+            <h2 class="wwa-title">Who We Are</h2>
+            <p>
+              We are a dynamic team committed to human capital development,
+              offering accredited Skills Development and Training solutions
+              designed for real-world impact. Our additional services include
+              business consulting, accreditation support, and capacity-building
+              interventions.
+            </p>
+          </div>
+          <div class="mh-branding">
+            <div class="mhb-container">
+              <img src="./Moripe_Logo-removebg-preview.png" alt="Moripe Logo" />
+            </div>
+          </div>
+        </div>
+
+        <div class="vp-container">
+          <div class="value-prop">
+            <h3 class="vp-title">Our Value Proposition</h3>
+            <ul>
+              <li><i class="fas fa-check-circle"></i> SETA-accredited Programmes</li>
+              <li><i class="fas fa-check-circle"></i> Customisable Training Modules</li>
+              <li><i class="fas fa-check-circle"></i> B-BBEE-aligned Skills Solutions</li>
+              <li><i class="fas fa-check-circle"></i> Workforce Upskilling & Reskilling</li>
+            </ul>
+          </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials" id="testimonials" data-aos="fade-up">
+      <h2 class="testimonials-title">Testimonials</h2>
+      <div class="testimonial-container">
+        <div class="testimonial">
+          <p>
+            "The team delivered outstanding training—our staff feels empowered and capable!"
+          </p>
+          <span>- HR Manager, GlobalLogix</span>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Professional, knowledgeable, and reliable. They're now our go-to training partner."
+          </p>
+          <span>- Director, EduBridge</span>
+        </div>
+        <div class="testimonial">
+          <p>
+            "Practical training that actually sticks. The change in our workforce is tangible."
+          </p>
+          <span>- CEO, BuildTech SA</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other Services -->
+    <section class="services" id="services" data-aos="fade-up">
+      <h2 class="services-title">Other Services</h2>
+
+      <div class="services-grid">
+        <div class="service-section">
+          <img src="./Business Consultation.jpg" alt="Business Consulting" class="service-img" />
+          <div class="service-content">
+            <h3>Business Consulting</h3>
+            <p>We help startups and enterprises refine their strategy...</p>
+            <a href="./Services.html" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="service-section">
+          <img src="./Financial Services.jpg" alt="Financial Services" class="service-img" />
+          <div class="service-content">
+            <h3>Financial Services</h3>
+            <p>We deliver forward-thinking financial solutions...</p>
+            <a href="./Services.html" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="service-section">
+          <img src="./Distributions.jpg" alt="Moripe Distribution" class="service-img" />
+          <div class="service-content">
+            <h3>Moripe Distribution</h3>
+            <p>We offer cutting-edge energy distribution solutions...</p>
+            <a href="./Services.html" class="btn">Read More</a>
+          </div>
+        </div>
+
+        <div class="service-section">
+          <img src="./Entrepreneurship.jpg" alt="Entrepreneurship" class="service-img" />
+          <div class="service-content">
+            <h3>Entrepreneurship</h3>
+            <p>"I'm not a job seeker, I'm a job creator"...</p>
+            <a href="./Services.html" class="btn">Read More</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNERS CAROUSEL -->
+    <section class="partners" id="partners" data-aos="zoom-in">
+      <h2 class="partner-title">Our Partners</h2>
+      <div class="carousel">
+        <div class="carousel-track">
+          <div class="carousel-slide">
+            <img src="./assets/ABSA.png" alt="" />
+            <img src="./assets/CHIETA.png" alt="" />
+            <img src="./assets/CJC.png" alt="" />
+            <img src="./assets/ETDP_Seta.png" alt="" />
+            <img src="./assets/EWC.jpeg" alt="" />
+            <img src="./assets/GEP.png" alt="" />
+            <img src="./assets/iBASA.png" alt="" />
+            <img src="./assets/inseta.png" alt="" />
+            <img src="./assets/Mict_Seta.jpeg" alt="" />
+            <img src="./assets/MOTUS.png" alt="" />
+            <img src="./assets/Nyda.png" alt="" />
+            <img src="./assets/PnP.png" alt="" />
+            <img src="./assets/PSiRA.pn" alt="" />
+            <img src="./assets/QCTO.png" alt="" />
+            <img src="./assets/RBED.png" alt="" />
+            <img src="./assets/Santam.jpeg" alt="" />
+            <img src="./assets/SEDA.png" alt="" />
+            <img src="./assets/Services_Seta.jpeg" alt="" />
+            <img src="./assets/Spar.png" alt="" />
+            <img src="./assets/SWGC.png" alt="" />
+            <img src="./assets/TETA.jpeg" alt="" />
+            <img src="./assets/W&Rseta.png" alt="" />
+          </div>
+
+          <div class="carousel-slide">
+            <img src="./assets/ABSA.png" alt="" />
+            <img src="./assets/CHIETA.png" alt="" />
+            <img src="./assets/CJC.png" alt="" />
+            <img src="./assets/ETDP_Seta.png" alt="" />
+            <img src="./assets/EWC.jpeg" alt="" />
+            <img src="./assets/GEP.png" alt="" />
+            <img src="./assets/iBASA.png" alt="" />
+            <img src="./assets/inseta.png" alt="" />
+            <img src="./assets/Mict_Seta.jpeg" alt="" />
+            <img src="./assets/MOTUS.png" alt="" />
+            <img src="./assets/Nyda.png" alt="" />
+            <img src="./assets/PnP.png" alt="" />
+            <img src="./assets/PSiRA.pn" alt="" />
+            <img src="./assets/QCTO.png" alt="" />
+            <img src="./assets/RBED.png" alt="" />
+            <img src="./assets/Santam.jpeg" alt="" />
+            <img src="./assets/SEDA.png" alt="" />
+            <img src="./assets/Services_Seta.jpeg" alt="" />
+            <img src="./assets/Spar.png" alt="" />
+            <img src="./assets/SWGC.png" alt="" />
+            <img src="./assets/TETA.jpeg" alt="" />
+            <img src="./assets/W&Rseta.png" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Media Section  -->
+    <section class="form-section">
+      <div class="col-1">
+        <h2>Enquiries</h2>
+        <p>
+          Please fill out the form below to get in touch with us. We will get back to you as soon as
+          possible.
+        </p>
+      </div>
+
+      <div class="col-2">
+        <!-- Responsive MS Form Embed -->
+        <div class="form-container">
+          <iframe src="https://forms.office.com/r/hY3Nz3igGS" frameborder="0" allowfullscreen webkitallowfullscreen
+            mozallowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+  </div>
+  </div>
+
+  <footer>
+    <div class="footer-columns">
+      <div class="col-1">
+        <h4>Our Dedication</h4>
+        <img src="./Moripe_Logo-removebg-preview.png" alt="" />
+        <p>
+          Empowering businesses and individuals through tailored training and
+          support services.
+        </p>
+      </div>
+      <div class="col-2">
+        <h4>Contact Details</h4>
+        <p><a href="mailto:info@moripe.co.za" style="color: white; text-decoration: none;">Email: info@moripe.co.za</a>
+        </p>
+        <p>Phone: 011 443 0113</p>
+      </div>
+      <div class="col-3">
+        <h4>Our Locations</h4>
+        <label for="location" class="location-label">Head Office</label>
+        <ul class="address">
+          <li>104 First Rd, Lyndhurst</li>
+          <li>Sandton, 2090</li>
+        </ul>
+        <label for="location" class="location-label">Business Centre</label>
+        <ul class="address">
+          <li>M30 Canning Rd, Bramley View</li>
+          <li>Johannesburg, 2090</li>
+        </ul>
+        <label for="location" class="location-label">Mpumalanga Office</label>
+        <ul class="address">
+          <li>Stand No. 1267, Mzimuhle</li>
+          <li>Ekhukhayeni, 2672</li>
+        </ul>
+        <label for="location" class="location-label">Free State Office</label>
+        <ul class="address">
+          <li>Tshiya Street, Beirut Village</li>
+          <li>Phuthaditjhaba, 9866</li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <h4>Socials</h4>
+        <ul class="social-links">
+          <li class="social-link">
+            <a href="https://www.facebook.com/moripeofficial"><i class="fab fa-facebook-f"></i> Facebook</a>
+          </li>
+          <li class="social-link">
+            <a href="https://www.instagram.com/moripe_holding/"><i class="fab fa-instagram"></i> Instagram</a>
+          </li>
+          <li class="social-link">
+            <a href="https://whatsapp.com/channel/0029VayRqxOI1rcn4Ua6L945"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+          </li>
+          <li class="social-link">
+            <a href="https://www.linkedin.com/in/moripe-holdings-a370b4186/"><i class="fab fa-linkedin"></i>
+              LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+    </div>
+  </footer>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollTopBtn" class="scroll-top-btn" title="Go to top">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 1000,
+      once: true,
+    });
+
+    // Smooth scroll to sections
+    document.querySelectorAll('.nav-bar a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault();
+        document
+          .querySelector(this.getAttribute("href"))
+          .scrollIntoView({ behavior: "smooth" });
+      });
+    });
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll(".slide");
+    const hero = document.querySelector(".hero");
+
+    function showSlide(index) {
+      slides.forEach((s, i) => {
+        s.style.display = i === index ? "block" : "none";
+      });
+
+      // Set background based on index (not DOM elements)
+      switch (index) {
+        case 0:
+          hero.style.backgroundImage = "url('./innovation.jpg')";
+          hero.style.backgroundSize = "cover";
+          hero.style.backgroundPosition = "center";
+          break;
+        case 1:
+          hero.style.backgroundImage = "url('./johannesburg.jpg')";
+          hero.style.backgroundSize = "cover";
+          hero.style.backgroundPosition = "center";
+          break;
+        case 2:
+          hero.style.backgroundImage = "url('./elephants.jpg')";
+          hero.style.backgroundSize = "cover";
+          hero.style.backgroundPosition = "center";
+          break;
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    showSlide(currentSlide);
+    setInterval(nextSlide, 5000);
+
+
+    AOS.init({ duration: 1000 });
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = () => {
+      scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+    };
+    scrollBtn.onclick = () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    };
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+
+</html>

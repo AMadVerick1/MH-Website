@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Financial Services | Moripe Holdings</title>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <!-- AOS Animation CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary: #130f29;
+      --secondary: #fb0001;
+      --tertiary: #fdfefe;
+      --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--tertiary);
+      color: var(--primary);
+      font-family: var(--font-family);
+    }
+
+    .main-container {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    .hamburger {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: var(--tertiary);
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .nav-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: var(--primary);
+      padding: 0.6rem 1.7rem;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      color: var(--tertiary);
+      position: sticky;
+      top: 0;
+      overflow: hidden;
+      z-index: 999;
+    }
+
+    .nav-bar .logo {
+      height: 110px;
+      width: 130px;
+    }
+
+    .nav-bar ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-bar ul li a {
+      text-decoration: none;
+      color: var(--tertiary);
+      font-weight: bold;
+      position: relative;
+    }
+
+    .nav-bar ul li a::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      height: 2px;
+      width: 0%;
+      background-color: var(--secondary);
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-bar ul li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-bar .active {
+      color: var(--secondary);
+    }
+
+    .social-icons {
+      font-size: 24px;
+    }
+
+    @media (max-width: 768px) {
+
+
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .nav-bar ul li {
+        margin-bottom: 1rem;
+      }
+    }
+
+    .content {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 2rem;
+    }
+
+    .content h2 {
+      color: var(--primary);
+      margin-bottom: 1rem;
+    }
+
+    .content p {
+      line-height: 1.7;
+      color: var(--primary);
+    }
+
+    .features {
+      display: grid;
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 5px solid var(--secondary);
+      padding: 1.5rem;
+      border-radius: 6px;
+    }
+
+    .feature i {
+      color: var(--secondary);
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    footer {
+      background: #0e0a21;
+      color: #ccc;
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
+
+    .location-label {
+      font-weight: bold;
+      text-decoration: underline;
+      font-size: 1.2rem;
+    }
+
+    .address {
+      list-style: none;
+      padding: 10px;
+    }
+
+    .social-link a {
+      color: var(--tertiary);
+      margin-right: 10px;
+      text-decoration: none;
+    }
+
+    .social-link a:hover {
+      color: var(--secondary);
+    }
+
+    .social-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .social-links ul li {
+      display: flex;
+      justify-content: space-around;
+      margin-right: 10px;
+    }
+
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 12px 16px;
+      border-radius: 50%;
+      font-size: 18px;
+      display: none;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .scroll-top-btn:hover {
+      background-color: #c30001;
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+
+    @media (max-width: 1200px) {
+
+      .wwa .container h2,
+      .vp-title,
+      .testimonials-title,
+      .partner-title {
+        font-size: 2.5rem;
+      }
+
+      .wwa .container p,
+      .value-prop li,
+      .testimonial p {
+        font-size: 1.2rem;
+      }
+
+      .service-content h3 {
+        font-size: 1.2rem;
+      }
+
+      .service-content p {
+        font-size: 0.95rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-bar ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-bar .logo {
+        height: 80px;
+        width: 100px;
+      }
+
+      .wwa {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .wwa .container,
+      .wwa .mh-branding {
+        width: 100%;
+      }
+
+      .testimonial {
+        width: 45%;
+      }
+
+      .footer-columns div {
+        max-width: 45%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .hero {
+        height: 50vh;
+      }
+
+      .text-overlay {
+        padding: 1rem;
+        font-size: 1rem;
+        max-width: 90%;
+        left: 5%;
+      }
+
+      .vp-container,
+      .services,
+      .about {
+        padding: 2rem 1rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonial {
+        width: 100%;
+      }
+
+      .footer-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-columns div {
+        max-width: 100%;
+      }
+
+      .carousel-slide img {
+        height: 60px;
+        margin: 0 10px;
+      }
+
+      .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 14px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .nav-bar {
+        padding: 0.5rem 1rem;
+      }
+
+      .text-overlay {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+      }
+
+      .vp-title,
+      .testimonials-title,
+      .partner-title,
+      .services-title {
+        font-size: 2rem;
+      }
+
+      .testimonial p {
+        font-size: 1rem;
+      }
+
+      .service-img {
+        height: 160px;
+      }
+
+      .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      .scroll-top-btn {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+    }
+
+    @media(min-width: 768px) {
+      .features {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .section-content.row {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .section-content.row>* {
+        flex: 1;
+      }
+    }
+
+    /* === RESPONSIVE ENHANCEMENTS === */
+
+    @media (max-width: 1200px) {
+
+      .about-hero h1,
+      .about-section h2 {
+        font-size: 2.5rem;
+      }
+
+      .about-section p {
+        font-size: 1.1rem;
+      }
+
+      .value-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .value-card p {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .nav-bar ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .nav-bar .logo {
+        height: 80px;
+        width: 100px;
+      }
+
+      .core-values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      }
+
+      .footer-columns div {
+        max-width: 45%;
+      }
+
+      .about-hero h1 {
+        font-size: 2.3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+      }
+
+      .nav-bar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .about-hero {
+        height: auto;
+        padding: 3rem 1rem;
+      }
+
+      .about-hero h1 {
+        font-size: 2rem;
+      }
+
+      .about-section {
+        padding: 3rem 1rem;
+      }
+
+      .core-values-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+
+      .footer-columns {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-columns div {
+        max-width: 100%;
+        text-align: center;
+      }
+
+      .scroll-top-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 14px;
+        font-size: 16px;
+      }
+    }
+
+
+
+    @media (max-width: 480px) {
+      .nav-bar {
+        padding: 0.5rem 1rem;
+      }
+
+      .nav-bar ul li a {
+        font-size: 0.95rem;
+      }
+
+      .about-hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .about-section h2 {
+        font-size: 2rem;
+      }
+
+      .about-section p {
+        font-size: 1rem;
+      }
+
+      .value-card {
+        padding: 1rem;
+      }
+
+      .value-card h3 {
+        font-size: 1.1rem;
+      }
+
+      .value-card p {
+        font-size: 0.85rem;
+      }
+
+      .scroll-top-btn {
+        font-size: 14px;
+        padding: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="nav-bar">
+      <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
+
+      <ul>
+        <li>
+          <a href="./index.html"> <i class="fas fa-home"></i> Home</a>
+        </li>
+        <li>
+          <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
+        </li>
+        <li>
+          <a href="./Skills Development.html"><i class="fas fa-users"></i> Skills Development</a>
+        </li>
+        <li>
+          <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i> Calendar</a>
+        </li>
+        <!-- <li>
+          <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
+        </li> -->
+        <li>
+          <a href="./Services.html" class="active"><i class="fas fa-cogs"></i> Services</a>
+        </li>
+        <!-- <li>
+          <a href="./media.html"><i class="fas fa-images"></i> Media</a>
+        </li> -->
+        <li>
+          <a href="./Enquiries.html"><i class="fas fa-mail-bulk"></i> Enquiries</a>
+        </li>
+      </ul>
+
+    </div>
+
+  <header class="header" data-aos="fade-down">
+    <h1>Financial Services</h1>
+    <p>Expert financial solutions to help you grow, protect, and manage your assets.</p>
+  </header>
+
+  <section class="content">
+    <h2 data-aos="fade-up">Overview</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      At Moripe Holdings, our Financial Services division is committed to empowering individuals, businesses, and organizations through tailored financial solutions. Whether you're seeking advice, planning your finances, or needing business funding strategies, we have the expertise to support you.
+    </p>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Our Services Include</h2>
+    <div class="features">
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-wallet"></i>
+        <strong>Financial Planning</strong>
+        <p>We work with clients to build smart financial plans that align with their goals and risk profiles.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-coins"></i>
+        <strong>Investment Advice</strong>
+        <p>Our advisors help you make informed decisions to grow your wealth and diversify your investment portfolio.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-right">
+        <i class="fas fa-hand-holding-usd"></i>
+        <strong>Funding & Loans Guidance</strong>
+        <p>We assist businesses in identifying viable funding opportunities and preparing successful funding applications.</p>
+      </div>
+
+      <div class="feature" data-aos="fade-left">
+        <i class="fas fa-balance-scale"></i>
+        <strong>Risk Management</strong>
+        <p>We provide risk assessments and recommend tools to protect your financial future from uncertainty and loss.</p>
+      </div>
+
+    </div>
+
+    <h2 data-aos="fade-up" style="margin-top: 3rem;">Why Choose Moripe?</h2>
+    <p data-aos="fade-up" data-aos-delay="100">
+      Our holistic approach blends deep industry knowledge with modern tools to ensure you receive practical, actionable, and sustainable financial guidance. We’re more than advisors — we’re your partners in progress.
+    </p>
+  </section>
+
+  <footer>
+    &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+  </footer>
+
+  <!-- AOS Animation Script -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 1000 });
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
