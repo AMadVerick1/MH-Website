@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moripe Holdings | Skills Development</title>
+    <meta name="description"
+        content="Moripe Holdings - Moripe Holdings is a leading provider of business consulting, training, and distribution services, dedicated to driving sustainable growth and transformation." />
+    <link rel="icon" type="image/x-icon" href="/Moripe_Logo-removebg-preview.png" />
+    <style>
+        :root {
+            --primary: #130f29;
+            --secondary: #fb0001;
+            --tertiary: #fdfefe;
+            --font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--tertiary);
+            color: var(--primary);
+            font-family: var(--font-family);
+        }
+
+        .main-container {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--tertiary);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary);
+            padding: 0.6rem 1.7rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            color: var(--tertiary);
+            position: sticky;
+            top: 0;
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .nav-bar .logo {
+            height: 110px;
+            width: 130px;
+        }
+
+        .nav-bar ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-bar ul li a {
+            text-decoration: none;
+            color: var(--tertiary);
+            font-weight: bold;
+            position: relative;
+        }
+
+        .nav-bar ul li a::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            height: 2px;
+            width: 0%;
+            background-color: var(--secondary);
+            transition: width 0.3s ease-in-out;
+        }
+
+        .nav-bar ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-bar .active {
+            color: var(--secondary);
+        }
+
+        .social-icons {
+            font-size: 24px;
+        }
+
+        .social-icons a {
+            color: #ffffff;
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .hero {
+            height: 65vh;
+            position: relative;
+        }
+
+        .slide {
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .fade {
+            animation: fade 1.5s ease-in-out infinite;
+        }
+
+        .text-overlay {
+            position: absolute;
+            bottom: 20%;
+            left: 5%;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        .training-title,
+        .course-offerings-title {
+            text-align: center;
+            font-size: 3rem;
+            /* margin-top: 3rem; */
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        .trainings-container {
+            padding: 2rem;
+            background: #fdfdfd;
+        }
+
+        .training-segment {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .training-segment:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .training-image {
+            flex: 1 1 40%;
+            min-width: 280px;
+        }
+
+        .training-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .training-info {
+            flex: 1 1 60%;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .training-info h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .training-info p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .training-courses-outline-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            /* soft neutral background */
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .training-courses-outline-container h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #00a6a6;
+            padding-left: 1rem;
+        }
+
+        .training-courses-outline-container p {
+            font-size: 1rem;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .training-courses-outline-container ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 2rem;
+        }
+
+        .training-courses-outline-container li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: #222;
+        }
+
+        .training-courses-outline-container li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #00a6a6;
+            font-weight: bold;
+        }
+
+        @media screen and (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-bar {
+                flex-wrap: wrap;
+            }
+
+            /* Hide menu by default */
+            .nav-bar ul {
+                flex-direction: column;
+                width: 100%;
+                max-height: 0;
+                overflow: hidden;
+                background-color: var(--primary);
+                gap: 1rem;
+                padding: 0;
+            }
+
+            /* Show menu when active */
+            .nav-bar ul.active {
+                max-height: 300px;
+                /* adjust depending on content */
+                padding: 1rem 0;
+            }
+
+            .nav-bar ul li {
+                text-align: center;
+            }
+
+            .social-icons {
+                display: none;
+                /* optional: hide on mobile */
+            }
+            
+            .training-courses-outline-container {
+                padding: 1rem;
+            }
+
+            .training-courses-outline-container h2 {
+                font-size: 1.5rem;
+            }
+
+            .training-courses-outline-container p {
+                font-size: 0.95rem;
+            }
+        }
+
+
+        .courses-lists-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .course-list {
+            flex: 1 1 30%;
+            padding: 1rem;
+            background: var(--tertiary);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+
+        .course-list h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .course-offerings-sub-title {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin: 1rem;
+        }
+
+        .courses {
+            display: grid;
+            /* grid-template-columns: / */
+            gap: 1rem;
+        }
+
+        .course-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin: 5px;
+        }
+
+        .course-header {
+            background: var(--primary);
+            color: var(--tertiary);
+            padding: 1rem 1.5rem;
+            font-size: 1.4 rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .course-header:hover {
+            background: var(--secondary);
+        }
+
+        .course-body {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 1.5rem;
+            background: #fafafa;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+        }
+
+        .course-body.open {
+            max-height: 500px;
+            /* enough to fit content */
+            padding: 1rem 1.5rem;
+        }
+
+        .toggle-icon {
+            font-weight: bold;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-icon.open {
+            transform: rotate(45deg);
+        }
+
+        .course-body h4 {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-body li {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .course-body li a,
+        .course-body li p {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 15px;
+            /* font-weight: bold; */
+        }
+
+        .course {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            justify-content: space-between;
+            gap: 1rem;
+            flex: 1 1 30%;
+            padding: 1rem 2rem;
+            background: var(--primary);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+        }
+
+        .course span {
+            color: var(--tertiary);
+        }
+
+        .course p {
+            margin-top: 15px;
+            color: var(--tertiary);
+            font-size: 1.1rem;
+        }
+
+        .course .course-title {
+            font-size: 1.5rem;
+            color: var(--tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+        .course .q-header,
+        .course .s-header {
+            margin-top: 0.3rem;
+            font-size: 1.2rem;
+            color: var(--tertiary);
+            margin-bottom: 0.5rem;
+        }
+
+
+        .tab {
+            background: var(--primary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .tab:hover,
+        .tab#active {
+            background: var(--secondary);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 5px;
+            background: #ccc;
+            margin: 2rem 0;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0%);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        footer {
+            background-color: var(--primary);
+            color: var(--tertiary);
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .footer-columns {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 2rem 0;
+            background-color: var(--primary);
+            color: var(--tertiary);
+        }
+
+        .footer-columns div {
+            margin: 1rem;
+            max-width: calc(25% - 2rem);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 0;
+            background-color: var(--primary);
+        }
+
+        .col-1 h4,
+        .col-2 h4,
+        .col-3 h4,
+        .col-4 h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .col-1 p,
+        .col-2 p,
+        .col-3 p,
+        .col-4 p {
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .location-label {
+            font-weight: bold;
+            text-decoration: underline;
+            font-size: 1.2rem;
+        }
+
+        .address {
+            list-style: none;
+            padding: 10px;
+        }
+
+        .social-link a {
+            color: var(--tertiary);
+            margin-right: 10px;
+            text-decoration: none;
+        }
+
+        .social-link a:hover {
+            color: var(--secondary);
+        }
+
+        .social-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .social-links ul li {
+            display: flex;
+            justify-content: space-around;
+            margin-right: 10px;
+        }
+
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 50%;
+            font-size: 18px;
+            display: none;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .scroll-top-btn:hover {
+            background-color: #c30001;
+        }
+
+        /* Tablet view */
+        @media screen and (max-width: 1024px) {
+            .nav-bar {
+                flex-direction: column;
+                align-items: left;
+            }
+
+            .nav-bar .logo {
+                height: 80px;
+                width: 100px;
+            }
+
+            .nav-bar ul {
+                flex-direction: column;
+                gap: 1rem;
+                margin-top: 1rem;
+                width: 100%;
+            }
+
+            .training-info h3 {
+                font-size: 1.7rem;
+            }
+
+            .training-info p {
+                font-size: 1rem;
+            }
+
+            .course .course-title,
+            .course .q-header,
+            .course .s-header {
+                font-size: 1.2rem;
+            }
+
+            .footer-columns div {
+                max-width: calc(50% - 2rem);
+            }
+        }
+
+        /* Small tablet and mobile */
+        @media screen and (max-width: 768px) {
+            .text-overlay {
+                bottom: 10%;
+                left: 5%;
+                padding: 1rem;
+                max-width: 90%;
+                font-size: 0.9rem;
+            }
+
+            .training-title,
+            .course-offerings-title {
+                font-size: 2rem;
+            }
+
+            .training-segment {
+                flex-direction: column !important;
+            }
+
+            .training-image,
+            .training-info {
+                flex: 1 1 100%;
+                min-width: 100%;
+            }
+
+            .training-info {
+                padding: 1.5rem 1rem;
+            }
+
+            .courses {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-columns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-columns div {
+                max-width: 90%;
+                text-align: center;
+            }
+
+            .scroll-top-btn {
+                bottom: 20px;
+                right: 20px;
+                padding: 10px 14px;
+            }
+        }
+
+        /* Mobile phones */
+        @media screen and (max-width: 480px) {
+            .nav-bar {
+                padding: 0.5rem 1rem;
+            }
+
+            .nav-bar ul {
+                gap: 0.5rem;
+            }
+
+            .nav-bar ul li a {
+                font-size: 0.95rem;
+            }
+
+            .text-overlay {
+                font-size: 0.85rem;
+                padding: 0.8rem;
+            }
+
+            .training-title,
+            .course-offerings-title {
+                font-size: 1.6rem;
+            }
+
+            .training-info h3 {
+                font-size: 1.4rem;
+            }
+
+            .training-info p {
+                font-size: 0.95rem;
+            }
+
+            .course {
+                padding: 1rem;
+            }
+
+            .course .course-title,
+            .course .q-header,
+            .course .s-header {
+                font-size: 1rem;
+            }
+
+            .course p {
+                font-size: 0.95rem;
+            }
+
+            .tab {
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .scroll-top-btn {
+                font-size: 16px;
+            }
+
+            .footer-columns div {
+                max-width: 100%;
+                margin: 1rem 0;
+            }
+
+            .col-1 h4,
+            .col-2 h4,
+            .col-3 h4,
+            .col-4 h4 {
+                font-size: 1.2rem;
+            }
+
+            .col-1 p,
+            .col-2 p,
+            .col-3 p,
+            .col-4 p {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- AOS Animation CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <title>Moripe Holdings</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="nav-bar">
+            <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
+
+            <button class="hamburger" id="hamburger">&#9776;</button>
+
+            <ul id="nav-menu">
+                <li>
+                    <a href="./index.html"> <i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
+                </li>
+                <li>
+                    <a href="./Skills Development.html" class="active"><i class="fas fa-users"></i> Skills Development</a>
+                </li>
+                <li>
+                    <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i>
+                        Calendar</a>
+                </li>
+                <!-- <li>
+          <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
+        </li> -->
+                <li>
+                    <a href="./Services.html"><i class="fas fa-cogs"></i> Services</a>
+                </li>
+                <!-- <li>
+          <a href="./media.html"><i class="fas fa-images"></i> Media</a>
+        </li> -->
+                <li>
+                    <a href="./Enquiries.html"><i class="fas fa-mail-bulk"></i> Enquiries</a>
+                </li>
+            </ul>
+        </div>
+        <div class="body-container">
+            <!-- SLIDESHOW / HERO SECTION -->
+            <section class="hero" style="position: relative; overflow: hidden">
+                <div class="slideshow-container">
+                    <div class="slide fade" style="background-image: url('./333.jpg')">
+                        <div class="text-overlay" data-aos="fade-up">
+                            <h1>Empowering People, Transforming Futures</h1>
+                            <p>Specialists in Skills Development & Training</p>
+                        </div>
+                    </div>
+                    <div class="slide fade" style="background-image: url('./565.jpg')">
+                        <div class="text-overlay" data-aos="fade-up">
+                            <h1>Certified. Accredited. Trusted.</h1>
+                            <p>Supporting Enterprises Across Sectors</p>
+                        </div>
+                    </div>
+                    <div class="slide fade" style="background-image: url('./891.jpg')">
+                        <div class="text-overlay" data-aos="fade-up">
+                            <h1>Practical Skills, Real Impact</h1>
+                            <p>Developing Tomorrow's Workforce</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="trainings-container" id="trainings">
+                <h2 class="training-title" data-aos="fade-up">Our Trainings</h2>
+                <div class="training-segment SDF" data-aos="fade-right">
+                    <div class="training-image" data-aos="fade-down">
+                        <img src="./SDF.jpg" alt="Training Image" />
+                    </div>
+
+                    <div class="training-info">
+                        <h3>Skills Development Facilitation</h3>
+                        <p>
+                            Moripe Holdings offers end-to-end Skills Development Facilitation (SDF) services designed to
+                            elevate your organization's compliance, performance, and impact. We partner with businesses
+                            and institutions to drive transformation through targeted learning interventions that meet
+                            both regulatory requirements and strategic workforce objectives.
+
+                            Our services include: <br>
+                        <ul style="margin-left: 2rem;">
+
+                            <li>
+                                Compiling and submitting Workplace Skills Plans (WSPs) and Annual Training Reports
+                                (ATRs)
+                            </li>
+
+                            <li>
+                                Assisting with SETA funding applications
+                            </li>
+
+                            <li>
+                                Aligning training initiatives with the latest QCTO occupational qualifications
+                            </li>
+
+                            <li>
+                                Developing and managing Learnerships and Internships for meaningful youth employment
+                            </li>
+
+                            <li>
+                                Facilitating impactful short courses tailored to upskill staff at all levels
+                            </li>
+                        </ul><br>
+
+                        With Moripe, Skills Development is not just about ticking boxes — it’s about building
+                        capability, improving productivity, and creating long-term economic value. We stay current with
+                        South Africa’s evolving legislative landscape to ensure our clients remain compliant and
+                        competitive.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="training-segment Moripe-College" data-aos="fade-left">
+                    <div class="training-image" data-aos="fade-down">
+                        <img src="./QCTO.jpg" alt="Training Image" />
+                    </div>
+                    <div class="training-info">
+                        <h3>Occupational Qualifications (QCTO-Aligned)</h3>
+                        <p>
+                            We deliver nationally recognized occupational qualifications accredited by the QCTO (Quality
+                            Council for Trades and Occupations). These are industry-driven programmes designed to close
+                            specific skills gaps in sectors such as Business Administration, Wholesale & Retail, Early
+                            Childhood Development, and IT Support.
+
+                            Our qualifications prepare learners for real-world work environments by combining:
+                        <ul style="margin-left: 2rem;">
+
+                            <li>Structured theoretical instruction</li>
+
+                            <li>Practical workplace experience</li>
+
+                            <li>Summative assessments aligned with occupational standards</li>
+                        </ul><br>
+
+                        We work closely with employers to facilitate workplace placement, monitor learner progress, and
+                        ensure successful certification. Whether you're a learner looking to become job-ready or an
+                        employer building your future talent pipeline — we're here to bridge that gap.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="training-segment Moripe-College" data-aos="fade-left">
+                    <div class="training-image" data-aos="fade-down">
+                        <img src="./short course.jpg" alt="Training Image" />
+                    </div>
+                    <div class="training-info">
+                        <h3>Short Courses</h3>
+                        <p>
+                            Our short courses are fast-paced, high-impact interventions designed to deliver practical
+                            skills in a compressed timeframe. Ideal for professionals, jobseekers, and businesses aiming
+                            to upskill teams without long-term study commitments.
+
+                            Available in areas such as:
+
+                        <ul style="margin-left: 2rem;">
+
+                            <li>Entrepreneurship</li>
+
+                            <li>Digital Literacy</li>
+
+                            <li>Project Management</li>
+
+                            <li>Workplace Readiness</li>
+
+                            <li>Financial Life Skills</li>
+
+                            <li>Soft Skills</li>
+                        </ul><br>
+
+                        Each course is outcomes-based and includes practical exercises, case studies, and industry
+                        insights — making learning relevant, engaging, and immediately applicable.
+
+                        We also offer custom-designed short courses for organizations wanting to tailor training to
+                        specific operational needs.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="training-segment Moripe-College" data-aos="fade-left">
+                    <div class="training-image" data-aos="fade-down">
+                        <img src="./learnership & internship.jpg" alt="Training Image" />
+                    </div>
+                    <div class="training-info">
+                        <h3>Learnerships & Internships</h3>
+                        <p>
+                            At the heart of our mission is a commitment to youth development and sustainable employment.
+                            Our learnership and internship programmes are accredited, structured, and aligned to
+                            national skills priorities, offering young people the opportunity to gain a qualification
+                            while gaining hands-on experience in the workplace. We assist both learners and host
+                            employers with:
+
+                        <ul style="margin-left: 2rem;">
+
+                            <li>Internship placement</li>
+
+                            <li>Learnership implementation and management</li>
+
+                            <li>Stipend management and SETA reporting</li>
+
+                            <li>Candidate recruitment and onboarding</li>
+
+                            <li>Internship monitoring and evaluation</li>
+                        </ul><br>
+
+                        Whether you're an employer looking to benefit from tax incentives and B-BBEE points or a young
+                        person seeking to kickstart your career, Moripe is a trusted bridge between potential and
+                        opportunity.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="training-segment Moripe-College" data-aos="fade-left">
+                    <div class="training-image" data-aos="fade-down">
+                        <img src="./MC Logo.png" alt="Training Image"
+                            style="width: 100%; height: 100%; object-fit: fill; object-position: center;" />
+                    </div>
+                    <div class="training-info">
+                        <h3>Moripe College</h3>
+                        <p>
+                            Our College Division is committed to foundational education, academic support, and lifelong
+                            learning pathways for both school-going learners and adult learners.
+                            <br /><br />
+                            <span
+                                style="font-weight: bold; text-decoration: underline; font-size: 1.2rem; margin-top: 1rem; margin-bottom: 1.1rem;">Matric
+                                Rewrites & Tutoring</span><br><br>
+                            We specialize in preparing learners for NSC (National Senior Certificate) and Amended Senior
+                            Certificate (ASC) exams. Our expert facilitators guide students through core subjects with
+                            focus on:
+
+                        <ul style="margin-left: 2rem;">
+                            <li>Content mastery</li>
+
+                            <li>Exam technique</li>
+
+                            <li>Time management</li>
+
+                            <li>Study strategies</li>
+
+                            <li>Academic support</li>
+
+                            <li>Access to past papers, revision guides, and mock assessments</li>
+                        </ul><br>
+
+                        <span style="font-style: italic;"> Full-time and part-time learning options are available,
+                            including evening and weekend classes for working adults.</span>
+                        <span
+                            style="font-weight: bold; text-decoration: underline; font-size: 1.2rem; margin-top: 1rem; margin-bottom: 1.1rem;">Adult
+                            Education & Training (AET)</span><br>
+                        Our AET programme supports adults who wish to improve their basic literacy, numeracy, and
+                        communication skills. This empowers individuals to: <br> <br>
+
+                        <ul style="margin-left: 2rem;">
+                            <li>Access better employment opportunities</li>
+
+                            <li>Continue into further education</li>
+
+                            <li>Engage meaningfully in civic and economic life</li>
+                        </ul><br>
+
+                        <span style="font-style: italic;">With flexible schedules and qualified facilitators, AET at
+                            Moripe is a second chance that opens first-world opportunities.</span>
+
+                        </p>
+
+                    </div>
+                </div>
+            </section>
+
+            <section class="training-courses-outline-container">
+                <h2 class="course-offerings-title">Courses Offered</h2>
+                <span>Check out our course offerings</span>
+                <div class="divider"></div>
+
+                <div class="courses-lists-container">
+                    <div class="courses-list" id="sdf" data-aos="fade-down">
+                        <h3 data-aos="fade-up" class="course-offerings-sub-title">Skills Development Programmes</h3>
+
+                        <div class="courses">
+
+                            <!-- Finance for Non-Financial Managers -->
+                            <div class="course-card">
+                                <div class="course-header">
+                                    <h3>Finance for Non-Financial Managers</h3>
+                                    <span class="toggle-icon">+</span>
+                                </div>
+                                <div class="course-body">
+                                    <h4>Qualifications</h4>
+                                    <ul>
+                                        <li><a
+                                                href="./Accreditations/National Certificate Wealth Management NQF 5 ID 57608.pdf">National
+                                                Certificate: Wealth Management (NQF 5 - ID 57608)</a></li>
+                                        <li><a
+                                                href="./Accreditations/Occupational Certificate Financial Advisor NQF 6 ID 105026.pdf">Occupational
+                                                Certificate: Financial Advisor (NQF 6 - ID 105026)</a></li>
+                                    </ul>
+                                    <h4>Short Courses</h4>
+                                    <ul>
+                                        <li>Fundamentals of Investments – 3 Days</li>
+                                        <li>Personal Income Tax for Planning – 4 Days</li>
+                                        <li>Risk in Financial Services – 3 Days</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Entrepreneurship -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Entrepreneurship</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="course-body">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    <li><a
+                                            href="./Accreditations/Occupational Certificate New Venture Creation NQF 4 ID 66249.pdf">Occupational
+                                            Certificate: New Venture Creation (NQF 4 - ID 66249)</a></li>
+                                    <li><a href="./Accreditations/Small Business Consultant NQF 5 ID 118741.pdf">Small
+                                            Business Consultant (NQF 5 - ID 118741)</a></li>
+                                    <li><a href="#">Technopreneur (SP-220328)</a></li>
+                                </ul>
+                                <h4>Short Courses</h4>
+                                <ul>
+                                    <li>Business Consulting – 2 Days</li>
+                                    <li>Costing & Pricing – 3 Days</li>
+                                    <li>Strategic/Operational Planning – 3 Days</li>
+                                </ul>
+
+                            </div>
+                        </div>
+
+                        <!-- Marketing & Digital Marketing -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Marketing & Digital Marketing</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="course-body">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    <li><a href="./Accreditations/Marketing Coordinator NQF 5 ID 118706.pdf">Occupational
+                                            Certificate: Marketing Coordinator (NQF 5 - ID 118706)</a></li>
+                                </ul>
+                                <h4>Short Courses</h4>
+                                <ul>
+                                    <li>Marketing Business Skills – 3 Days</li>
+                                    <li>Customer Relationship Management – 2 Days</li>
+                                    <li>Digital Tools – 2 Days</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- End User Computing -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>End User Computing</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="course-body">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    <li><a href="./Accreditations/End User Computing (NQF 3 - ID 49077).pdf">Occupational
+                                            Certificate: End User Computing (NQF 3 - ID 49077)</a></li>
+                                    <li><a href="./Accreditations/Cloud Administrator NQF 4 ID 118699.pdf">Occupational
+                                            Certificate: Cloud Administrator (NQF 4 - ID 118699)</a></li>
+                                    <li><a href="./Accreditations/Computer Technician NQF 5 ID 101408.pdf">Occupational
+                                            Certificate: Computer Technician (NQF 5 - ID 101408)</a></li>
+                                </ul>
+                                <h4>Short Courses</h4>
+                                <ul>
+                                    <li>C++ Programmer – 75 Days</li>
+                                    <li>Python Programmer – 75 Days</li>
+                                    <li>Basic & Advanced Computer Skills</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Retail Management -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Retail Management</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="course-body">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    <li><a href="./Accreditations/Retail Store Manager NQF 6 ID 91789.pdf">Occupational
+                                            Certificate: Store Manager (NQF 6 - ID 91789)</a></li>
+                                    <li><a href="./Accreditations/Wholesale & Retail Operations NQF 3 ID 63409.pdf">Occupational
+                                            Certificate: Wholesale & Retail Operations (NQF 3 - ID 63409)</a></li>
+                                </ul>
+                                <h4>Short Courses</h4>
+                                <ul>
+                                    <li>Customer Service – 2 Days</li>
+                                    <li>Retail Financial Management – 3 Days</li>
+                                    <li>Stock & Cash Management – 4 Days</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Leadership and Governance -->
+                        <div class="course-card">
+                            <div class="course-header">
+                                <h3>Leadership and Governance</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="course-body">
+                                <h4>Qualifications</h4>
+                                <ul>
+                                    <li><a href="./Accreditations/Generic Management NQF 4 - ID 57712.pdf">Occupational
+                                            Certificate: Generic Management (NQF 4 - ID 57712 LP 74630)</a></li>
+                                    <li><a href="./Accreditations/Generic Management NQF 5 - ID 59201.pdf">Occupational
+                                            Certificate: Generic Management (NQF 5 - ID 59201 LP 60269 or LP 63334)</a>
+                                    </li>
+                                    <li><a href="./Accreditations/Project Manager NQF 5 - ID 101869.pdf">Occupational
+                                            Certificate: Project Manager (NQF 5 - ID 101869)</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="courses-list" id="college" data-aos="fade-down" style="margin-top: 5rem;">
+                    <h3 data-aos="fade-up" class="course-offerings-sub-title">Moripe College</h3>
+                    <div class="courses">
+
+                        <!-- Matric Rewrites -->
+                        <div class="course">
+                            <span class="course-title"><strong>Matric Rewrites</strong><br>
+                                <p>
+                                    Life didn't stop your dreams,neither will we. Our Matric Rewrite programme
+                                    offers learners a second chance to pass or improve their Grade 12 results.
+                                    Covering key subjects like Mathematics, Physical Sciences, Life Sciences,
+                                    Business Studies, and English, this course is designed to reignite confidence,
+                                    restore purpose, and help you step into your future with pride and qualification
+                                    in hand.
+                                </p>
+                            </span>
+                        </div>
+
+                        <!-- Tutoring -->
+                        <div class="course">
+                            <span class="course-title"><strong>Tutoring</strong><br>
+                                <p>
+                                    Whether you're catching up or aiming for the top, our tutoring services are
+                                    tailored to meet learners at every academic level. We offer focused support in
+                                    core subjects such as Mathematics, Accounting, Physical and Life Sciences, and
+                                    English. Delivered in small groups or one-on-one, our approach boosts
+                                    comprehension, builds self-belief, and turns study time into progress.
+                                </p>
+                            </span>
+                        </div>
+
+                        <!-- Adult Basic Education Training -->
+                        <div class="course">
+                            <span class="course-title"><strong>Adult Basic Education Training (ABET)</strong><br>
+                                <p>
+                                    It's never too late to start. Our ABET programme empowers adult learners with
+                                    foundational skills in literacy, numeracy, communication, and life orientation.
+                                    Designed for those who missed out on formal education, this course restores
+                                    dignity and opens doors to employment, further learning, and community
+                                    participation. We meet you where you are and walk the journey forward, together.
+                                </p>
+                            </span>
+                        </div>
+
+                        <!-- Amended Senior Certificate -->
+                        <div class="course">
+                            <span class="course-title"><strong>Amended Senior Certificate (ASC)</strong><br>
+                                <p>
+                                    A fresh start for a new future. The ASC is for adults who want to complete their
+                                    matric and earn a Senior Certificate that's recognized by Umalusi. Covering core
+                                    and elective subjects aligned with current national curricula, this course is
+                                    flexible, supportive, and purpose-driven, perfect for learners seeking new
+                                    academic and career pathways later in life.
+                                </p>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+        </div>
+        </section>
+
+    </div>
+    </div>
+
+    <footer>
+        <div class="footer-columns">
+            <div class="col-1">
+                <h4>Our Dedication</h4>
+                <img src="./Moripe_Logo-removebg-preview.png" alt="" />
+                <p>
+                    Empowering businesses and individuals through tailored training and
+                    support services.
+                </p>
+            </div>
+            <div class="col-2">
+                <h4>Contact Details</h4>
+                <p>Email: info@moripe.co.za</p>
+                <p>Phone: 011 443 0113</p>
+            </div>
+            <div class="col-3">
+                <h4>Our Locations</h4>
+                <label for="location" class="location-label">Head Office</label>
+                <ul class="address">
+                    <li>104 First Rd, Lyndhurst</li>
+                    <li>Sandton, 2090</li>
+                </ul>
+                <label for="location" class="location-label">Business Centre</label>
+                <ul class="address">
+                    <li>M30 Canning Rd, Bramley View</li>
+                    <li>Johannesburg, 2090</li>
+                </ul>
+                <label for="location" class="location-label">Mpumalanga Office</label>
+                <ul class="address">
+                    <li>Stand No. 1267, Mzimuhle</li>
+                    <li>Ekhukhayeni, 2672</li>
+                </ul>
+                <label for="location" class="location-label">Free State Office</label>
+                <ul class="address">
+                    <li>Tshiya Street, Beirut Village</li>
+                    <li>Phuthaditjhaba, 9866</li>
+                </ul>
+            </div>
+            <div class="col-4">
+                <h4>Socials</h4>
+                <ul class="social-links">
+                    <li class="social-link">
+                        <a href="https://www.facebook.com/moripeofficial"><i class="fab fa-facebook-f"></i> Facebook</a>
+                    </li>
+                    <li class="social-link">
+                        <a href="https://www.instagram.com/moripe_holding/"><i class="fab fa-instagram"></i>
+                            Instagram</a>
+                    </li>
+                    <li class="social-link">
+                        <a href="https://whatsapp.com/channel/0029VayRqxOI1rcb4Ua6L945"><i class="fab fa-whatsapp"></i>
+                            Whatsapp</a>
+                    </li>
+                    <li class="social-link">
+                        <a href="https://www.linkedin.com/in/moripe-holdings-a370b4186/"><i class="fab fa-linkedin"></i>
+                            LinkedIn</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; <span id="year"></span> Moripe Holdings. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" class="scroll-top-btn" title="Go to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        // Smooth scroll to sections
+        document.querySelectorAll('.nav-bar a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener("click", function (e) {
+                e.preventDefault();
+                document
+                    .querySelector(this.getAttribute("href"))
+                    .scrollIntoView({ behavior: "smooth" });
+            });
+        });
+
+        let currentSlide = 0;
+        const slides = document.querySelectorAll(".slide");
+        const hero = document.querySelector(".hero"); // Fix: get single element, not HTMLCollection
+
+        function showSlide(index) {
+            slides.forEach((s, i) => {
+                s.style.display = i === index ? "block" : "none";
+            });
+
+            // Set background based on index (not DOM elements)
+            switch (index) {
+                case 0:
+                    hero.style.backgroundImage = "url('./innovation.jpg')";
+                    hero.style.backgroundSize = "cover";
+                    hero.style.backgroundPosition = "center";
+                    break;
+                case 1:
+                    hero.style.backgroundImage = "url('./johannesburg.jpg')";
+                    hero.style.backgroundSize = "cover";
+                    hero.style.backgroundPosition = "center";
+                    break;
+                case 2:
+                    hero.style.backgroundImage = "url('./elephants.jpg')";
+                    hero.style.backgroundSize = "cover";
+                    hero.style.backgroundPosition = "center";
+                    break;
+            }
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000);
+
+        AOS.init({ duration: 1000 });
+
+        const tabs = document.querySelectorAll(".tab");
+        tabs.forEach((tab) => {
+            tab.addEventListener("click", (event) => {
+                showTab(event, tab.id);
+            });
+        });
+
+        function showTab(event, tabId) {
+            // Hide all course sections
+            document.querySelectorAll(".courses-list").forEach((div) => {
+                div.style.display = "none";
+            });
+
+            // Show the selected section
+            const selectedTab = document.getElementById(tabId);
+            const courseSections = document.querySelectorAll(".courses-list");
+
+            if (selectedTab === courseSections) {
+                courseSections.forEach((section) => {
+                    section.style.display = section.id === tabId ? "block" : "none";
+                })
+            }
+
+            // Remove previous "active" state
+            document.querySelectorAll(".tab").forEach((tab) => {
+                tab.removeAttribute("id");
+                tab.classList.remove("active");
+            });
+
+            // Apply active styles to the clicked tab
+            event.target.setAttribute("id", "active");
+            event.target.classList.add("active");
+        }
+
+
+        document.querySelectorAll('.course-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const body = header.nextElementSibling;
+                const icon = header.querySelector('.toggle-icon');
+
+                body.classList.toggle('open');
+                icon.classList.toggle('open');
+            });
+        });
+
+
+
+        const scrollBtn = document.getElementById("scrollTopBtn");
+        window.onscroll = () => {
+            scrollBtn.style.display = window.scrollY > 200 ? "block" : "none";
+        };
+        scrollBtn.onclick = () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
+        document.getElementById("year").textContent = new Date().getFullYear();
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
+    </script>
+</body>
+
+</html>

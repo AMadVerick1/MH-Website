@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Financial Services | Moripe Holdings</title>
 
   <!-- Font Awesome -->
@@ -373,6 +374,7 @@
       .features {
         grid-template-columns: repeat(2, 1fr);
       }
+
       .section-content.row {
         flex-direction: row;
         align-items: flex-start;
@@ -431,16 +433,39 @@
     }
 
     @media (max-width: 768px) {
-      .nav-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 1rem;
+      .hamburger {
+        display: block;
       }
 
+      .nav-bar {
+        flex-wrap: wrap;
+      }
+
+      /* Hide menu by default */
       .nav-bar ul {
         flex-direction: column;
-        align-items: flex-start;
         width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        background-color: var(--primary);
+        gap: 1rem;
+        padding: 0;
+      }
+
+      /* Show menu when active */
+      .nav-bar ul.active {
+        max-height: 300px;
+        /* adjust depending on content */
+        padding: 1rem 0;
+      }
+
+      .nav-bar ul li {
+        text-align: center;
+      }
+
+      .social-icons {
+        display: none;
+        /* optional: hide on mobile */
       }
 
       .about-hero {
@@ -520,39 +545,41 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="nav-bar">
-      <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
+    <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
 
-      <ul>
-        <li>
-          <a href="./index.html"> <i class="fas fa-home"></i> Home</a>
-        </li>
-        <li>
-          <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
-        </li>
-        <li>
-          <a href="./Skills Development.html"><i class="fas fa-users"></i> Skills Development</a>
-        </li>
-        <li>
-          <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i> Calendar</a>
-        </li>
-        <!-- <li>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+
+    <ul id="nav-menu">
+      <li>
+        <a href="./index.html" class="active"> <i class="fas fa-home"></i> Home</a>
+      </li>
+      <li>
+        <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
+      </li>
+      <li>
+        <a href="./Skills Development.html" class="active"><i class="fas fa-users"></i> Skills Development</a>
+      </li>
+      <li>
+        <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i> Calendar</a>
+      </li>
+      <!-- <li>
           <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
         </li> -->
-        <li>
-          <a href="./Services.html" class="active"><i class="fas fa-cogs"></i> Services</a>
-        </li>
-        <!-- <li>
+      <li>
+        <a href="./Services.html"><i class="fas fa-cogs"></i> Services</a>
+      </li>
+      <!-- <li>
           <a href="./media.html"><i class="fas fa-images"></i> Media</a>
         </li> -->
-        <li>
-          <a href="./Enquiries.html"><i class="fas fa-mail-bulk"></i> Enquiries</a>
-        </li>
-      </ul>
-
-    </div>
+      <li>
+        <a href="./Enquiries.html"><i class="fas fa-mail-bulk"></i> Enquiries</a>
+      </li>
+    </ul>
+  </div>
 
   <header class="header" data-aos="fade-down">
     <h1>Financial Services</h1>
@@ -562,7 +589,9 @@
   <section class="content">
     <h2 data-aos="fade-up">Overview</h2>
     <p data-aos="fade-up" data-aos-delay="100">
-      At Moripe Holdings, our Financial Services division is committed to empowering individuals, businesses, and organizations through tailored financial solutions. Whether you're seeking advice, planning your finances, or needing business funding strategies, we have the expertise to support you.
+      At Moripe Holdings, our Financial Services division is committed to empowering individuals, businesses, and
+      organizations through tailored financial solutions. Whether you're seeking advice, planning your finances, or
+      needing business funding strategies, we have the expertise to support you.
     </p>
 
     <h2 data-aos="fade-up" style="margin-top: 3rem;">Our Services Include</h2>
@@ -577,26 +606,30 @@
       <div class="feature" data-aos="fade-left">
         <i class="fas fa-coins"></i>
         <strong>Investment Advice</strong>
-        <p>Our advisors help you make informed decisions to grow your wealth and diversify your investment portfolio.</p>
+        <p>Our advisors help you make informed decisions to grow your wealth and diversify your investment portfolio.
+        </p>
       </div>
 
       <div class="feature" data-aos="fade-right">
         <i class="fas fa-hand-holding-usd"></i>
         <strong>Funding & Loans Guidance</strong>
-        <p>We assist businesses in identifying viable funding opportunities and preparing successful funding applications.</p>
+        <p>We assist businesses in identifying viable funding opportunities and preparing successful funding
+          applications.</p>
       </div>
 
       <div class="feature" data-aos="fade-left">
         <i class="fas fa-balance-scale"></i>
         <strong>Risk Management</strong>
-        <p>We provide risk assessments and recommend tools to protect your financial future from uncertainty and loss.</p>
+        <p>We provide risk assessments and recommend tools to protect your financial future from uncertainty and loss.
+        </p>
       </div>
 
     </div>
 
     <h2 data-aos="fade-up" style="margin-top: 3rem;">Why Choose Moripe?</h2>
     <p data-aos="fade-up" data-aos-delay="100">
-      Our holistic approach blends deep industry knowledge with modern tools to ensure you receive practical, actionable, and sustainable financial guidance. We’re more than advisors — we’re your partners in progress.
+      Our holistic approach blends deep industry knowledge with modern tools to ensure you receive practical,
+      actionable, and sustainable financial guidance. We’re more than advisors — we’re your partners in progress.
     </p>
   </section>
 
@@ -609,7 +642,15 @@
   <script>
     AOS.init({ duration: 1000 });
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    const hamburger = document.getElementById("hamburger");
+    const navMenu = document.getElementById("nav-menu");
+
+    hamburger.addEventListener("click", () => {
+      navMenu.classList.toggle("active");
+    });
   </script>
 
 </body>
+
 </html>

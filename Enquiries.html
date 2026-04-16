@@ -34,6 +34,18 @@
             overflow-x: hidden;
         }
 
+
+        .hamburger {
+            display: none;
+            font-size: 2rem;
+            background: none;
+            border: none;
+            color: var(--tertiary);
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+
         .nav-bar {
             display: flex;
             justify-content: space-between;
@@ -457,9 +469,11 @@
         <div class="nav-bar">
             <a href="/index.html"><img src="Moripe_Logo-removebg-preview.png" class="logo" /></a>
 
-            <ul>
+            <button class="hamburger" id="hamburger">&#9776;</button>
+
+            <ul id="nav-menu">
                 <li>
-                    <a href="./index.html"> <i class="fas fa-home"></i> Home</a>
+                    <a href="./index.html" class="active"> <i class="fas fa-home"></i> Home</a>
                 </li>
                 <li>
                     <a href="./About Us.html"><i class="fas fa-info-circle"></i> About</a>
@@ -469,18 +483,17 @@
                 </li>
                 <li>
                     <a href="./COURSES CALENDER Full and short.pdf" target="_blank"><i class="fas fa-calendar"></i>
-                        Calendar
-                    </a>
+                        Calendar</a>
                 </li>
                 <!-- <li>
-                    <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
-                </li> -->
+          <a href="./Accreditation.html"><i class="fas fa-award"></i> Accreditation</a>
+        </li> -->
                 <li>
                     <a href="./Services.html"><i class="fas fa-cogs"></i> Services</a>
                 </li>
                 <!-- <li>
-                    <a href="./media.html"><i class="fas fa-images"></i> Media</a>
-                </li> -->
+          <a href="./media.html"><i class="fas fa-images"></i> Media</a>
+        </li> -->
                 <li>
                     <a href="./Enquiries.html" class="active"><i class="fas fa-mail-bulk"></i> Enquiries</a>
                 </li>
@@ -502,8 +515,8 @@
                     <div class="col-2">
                         <!-- Responsive MS Form Embed -->
                         <div class="form-container">
-                            <iframe src="https://forms.office.com/r/hY3Nz3igGS"
-                                frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen>
+                            <iframe src="https://forms.office.com/r/hY3Nz3igGS" frameborder="0" allowfullscreen
+                                webkitallowfullscreen mozallowfullscreen>
                             </iframe>
                         </div>
 
@@ -650,6 +663,13 @@
         };
 
         document.getElementById("year").textContent = new Date().getFullYear();
+
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            navMenu.classList.toggle("active");
+        });
     </script>
 </body>
 
